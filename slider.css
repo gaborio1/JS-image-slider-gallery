@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.title-container p {
+  margin: 5px;
+  letter-spacing: 0.3rem;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+}
+
+.main-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  /* height: 100vh; */
+}
+
+.main-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 90%;
+  max-width: 1400px;
+}
+
+.title-container {
+  text-align: center;
+}
+
+.gallery-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 50px 0 50px 0;
+}
+
+.column {
+  margin: 5px;
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.img-slider-container {
+  position: relative;
+  margin: 10px;
+}
+
+.img-slider-container:hover {
+  cursor: ew-resize;
+}
+
+/* !!! width/height SHOULD BE THE SAME ON ALL CONTAINERS AND IMAGES !!! */
+
+/* ALL LANDSCAPE STYLE CONTAINERS AND IMAGES, BOTH after AND before */
+.landscape-style {
+  /* BOTH vw/h AND px WORK */
+  /* width: 45vw;
+    height: 36vh; */
+  width: 650px;
+  height: 325px;
+}
+
+/* ALL PORTRAIT STYLE CONTAINERS AND IMAGES, BOTH after AND before */
+.portrait-style {
+  /* width: 25vw;
+    height: 75vh; */
+  width: 467px;
+  height: 700px;
+}
+
+.img-container {
+  /*  IMG-CONTAINERS STACKED ON TOP OF EACH OTHER */
+  position: absolute;
+}
+
+/* HIDE CONTENT THAT IS NOT VISIBLE WHEN CHANGING WIDTH. BOTH landscape AND portrait */
+.img-container.before {
+  /* width HAS TO MATCH .slider { left: 33.33% } */
+  width: 33.33%;
+  overflow: hidden;
+}
+
+/* ALL IMAGES */
+.container img {
+  object-fit: cover;
+}
+
+.img-text {
+  position: absolute;
+  font-size: 30px;
+  font-weight: 300;
+  /* color: rgb(0, 0, 0); */
+  color: rgb(255, 255, 255);
+}
+
+/* TOP LEFT TEXT */
+.after .img-text {
+  right: 1rem;
+  top: 0.5rem;
+}
+
+/* TOP RIGHT TEXT */
+.before .img-text {
+  left: 1rem;
+  top: 0.5rem;
+}
+
+.slider {
+  position: absolute;
+  z-index: 2;
+  width: 2px;
+  height: 100%;
+  top: 0;
+  /* DEFAULT X POSITION */
+  left: 33.33%;
+  /* SLIDER BAR WILL BE CENTERED PERFECTLY REGARDLESS OF WIDTH */
+  transform: translate(-50%, 0%);
+  /* background: rgb(0, 0, 0); */
+  background: rgb(255, 255, 255);
+  /* !!! The element does not react to pointer events LIKE hover, click !!! */
+  /* THIS IS TO PREVENT IMG FORM FLICKERING WHEN BAR IS HOVERED */
+  pointer-events: none;
+}
